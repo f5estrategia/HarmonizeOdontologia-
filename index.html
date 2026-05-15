@@ -269,11 +269,11 @@
         /* Dobra 1: Hero */
         .hero {
             min-height: 100vh;
-            background: var(--gradient-dark);
+            background: radial-gradient(circle at 75% 20%, #1E2454 0%, #0B0E26 55%, #040510 100%);
             color: var(--text-light);
             padding-top: 60px;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             position: relative;
             overflow: hidden;
         }
@@ -353,9 +353,9 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            align-items: flex-end;
+            align-items: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             width: 100%;
         }
 
@@ -471,21 +471,18 @@
         }
 
         .hero-img-main {
-            max-width: 85% !important;
-            height: auto !important;
-            display: block !important;
-            margin: 0 auto 25% !important;
+            display: none !important;
         }
 
         .ba-card {
-            position: absolute;
-            bottom: 60px;
-            left: 0;
+            position: relative;
             background: rgba(255, 255, 255, 0.98);
             padding: 22px;
             border-radius: 22px;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(201, 169, 97, 0.2);
-            max-width: 340px;
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto;
             animation: float 5s ease-in-out infinite;
             z-index: 3;
             backdrop-filter: blur(20px);
@@ -577,19 +574,14 @@
             }
 
             .hero-img-main {
-                max-width: 130% !important;
-                width: 130% !important;
-                max-height: 78vh;
-                margin: 0 auto 20% !important;
-                object-fit: contain;
+                display: none !important;
             }
 
             .ba-card {
                 left: 0;
                 right: 0;
                 margin: 0 auto;
-                bottom: 30px;
-                max-width: 290px;
+                max-width: 400px;
                 z-index: 10;
             }
         }
@@ -617,15 +609,11 @@
             }
 
             .hero-img-main {
-                max-width: 140% !important;
-                width: 140% !important;
-                max-height: 82vh;
-                margin: 0 auto 25% !important;
+                display: none !important;
             }
 
             .ba-card {
-                bottom: 25px;
-                max-width: 250px;
+                max-width: 350px;
                 padding: 16px;
             }
 
@@ -642,15 +630,11 @@
             }
 
             .hero-img-main {
-                max-width: 150% !important;
-                width: 150% !important;
-                max-height: 85vh;
-                margin: 0 auto 25% !important;
+                display: none !important;
             }
 
             .ba-card {
-                bottom: 20px;
-                max-width: 220px;
+                max-width: 300px;
                 padding: 14px;
                 border-radius: 16px;
             }
@@ -1599,8 +1583,6 @@
                 <a href="https://wa.me/5547999999999" target="_blank" class="btn btn-primary">Agendar Consulta</a>
             </div>
             <div class="hero-image-container reveal" style="transition-delay: 0.2s;">
-                <img src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/foto%20doutor%20dobra%204.png?raw=true"
-                    alt="Dr. Clauhan de Moraes Vian" class="hero-img-main">
                 <div class="ba-card">
                     <img src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/Foto%20antes%20e%20depois%20hero.jpeg?raw=true"
                         alt="Antes e Depois">
