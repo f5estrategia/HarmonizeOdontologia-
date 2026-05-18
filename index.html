@@ -1006,7 +1006,242 @@
             }
         }
 
-        /* Dobra 5: Lab / Procedimentos */
+        /* Dobra 4: Doctor Cards */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .doctor-card {
+            background: var(--bg-cream);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 18, 48, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .doctor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 2;
+        }
+
+        .doctor-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 70px rgba(15, 18, 48, 0.18);
+            border-color: rgba(201, 169, 97, 0.4);
+        }
+
+        .doctor-img-wrap {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background: var(--gradient-navy);
+        }
+
+        .doctor-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .doctor-card:hover .doctor-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .doctor-info {
+            padding: 34px 32px 38px;
+        }
+
+        .doctor-info h3 {
+            font-size: 1.55rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .doctor-card:hover .doctor-info h3 {
+            color: var(--gold-dark);
+        }
+
+        .doctor-info p {
+            color: var(--text-gray);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+
+        @media (max-width: 768px) {
+            .doctors-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .doctor-info {
+                padding: 28px 26px 32px;
+            }
+
+            .doctor-info h3 {
+                font-size: 1.35rem;
+            }
+        }
+
+        /* Dobra 5: Equipe e Estrutura */
+        .team {
+            background-color: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .team::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(30, 36, 84, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .team .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin: 10px 0 60px;
+        }
+
+        .team-feat {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 26px 26px;
+            background: var(--white);
+            border-radius: 18px;
+            border: 1px solid rgba(30, 36, 84, 0.06);
+            box-shadow: 0 6px 18px rgba(15, 18, 48, 0.05);
+            transition: var(--transition-fast);
+        }
+
+        .team-feat:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 169, 97, 0.35);
+            box-shadow: 0 14px 36px rgba(201, 169, 97, 0.18);
+        }
+
+        .team-feat-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 6px 14px rgba(201, 169, 97, 0.3);
+        }
+
+        .team-feat-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--primary-dark);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .team-feat-text h4 {
+            font-size: 1.02rem !important;
+            color: var(--text-dark) !important;
+            margin-bottom: 6px !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.3px;
+        }
+
+        .team-feat-text p {
+            color: var(--text-gray);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .team-slider {
+            padding: 20px 10px 70px !important;
+        }
+
+        .team-slider .swiper-slide {
+            transition: transform 0.5s ease;
+        }
+
+        .team-slider .swiper-slide img {
+            width: 100%;
+            height: 560px;
+            object-fit: cover;
+            border-radius: 26px;
+            box-shadow: 0 28px 70px rgba(15, 18, 48, 0.22);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+            border: 1px solid rgba(201, 169, 97, 0.15);
+        }
+
+        .team-slider .swiper-slide:hover img {
+            transform: scale(1.015);
+            box-shadow: 0 35px 90px rgba(15, 18, 48, 0.28);
+        }
+
+        @media (max-width: 992px) {
+            .team-features {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .team-slider .swiper-slide img {
+                height: 420px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-slider .swiper-slide img {
+                height: 340px;
+                border-radius: 20px;
+            }
+        }
+
+        /* Dobra 6: Lab / Procedimentos */
         .lab {
             background: var(--gradient-dark);
             color: var(--text-light);
@@ -1654,54 +1889,141 @@
         </div>
     </section>
 
-    <!-- Dobra 4: Sobre o Doutor -->
+    <!-- Dobra 4: Especialistas -->
     <section class="about section-padding breakout">
-        <div class="container about-grid">
-            <div class="hero-image-container reveal">
-                <img src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/foto%20doutor%20dobra%204.jpg?raw=true"
-                    alt="Dr. Clauhan de Moraes Vian" class="about-img">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Nossos Especialistas</span>
+                <h2>Especialistas à Frente da Sua Transformação</h2>
+                <p>Na Harmonize, seu tratamento é conduzido por especialistas focados em resultados naturais.
+                    Combinamos a segurança de ter dentes fixos novamente com a sensibilidade de um contorno facial
+                    definido para uma transformação completa.</p>
             </div>
-            <div class="about-content reveal">
-                <h2>Dr. Clauhan de Moraes Vian</h2>
-                <h3>Sua transformação por quem é especialista.</h3>
-                <p>Sob a responsabilidade técnica do Dr. Clauhan de Moraes Vian (CRO/SC 24138), a Harmonize Odontologia
-                    une tecnologia digital a um olhar humano. Aqui, seu tratamento é um planejamento minucioso para
-                    devolver sua mastigação e autoestima com o conforto que você precisa.</p>
 
-                <div class="about-features">
-                    <div class="feat-item">
-                        <span class="feat-icon">
-                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                        </span>
-                        Planejamento Digital
+            <div class="doctors-grid">
+                <div class="doctor-card reveal">
+                    <div class="doctor-img-wrap">
+                        <img src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/foto%20doutor%20dobra%204%20Dr.%20Marcos%20Vin%C3%ADcius.png?raw=true"
+                            alt="Dr. Marcos Vinícius">
                     </div>
-                    <div class="feat-item">
-                        <span class="feat-icon">
-                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                        </span>
-                        Segurança Clínica
+                    <div class="doctor-info">
+                        <h3>Dr. Marcos Vinícius</h3>
+                        <p>Especialista em devolver a segurança de sorrir e comer, focado em implantes e na fixação
+                            definitiva dos seus dentes.</p>
                     </div>
-                    <div class="feat-item">
-                        <span class="feat-icon">
-                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                        </span>
-                        Sua Autoestima de Volta
+                </div>
+                <div class="doctor-card reveal" style="transition-delay: 0.15s;">
+                    <div class="doctor-img-wrap">
+                        <img src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/foto%20doutor%20dobra%204%20Dr.%20Clauhan%20de%20Moraes.png?raw=true"
+                            alt="Dr. Clauhan de Moraes">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Clauhan de Moraes</h3>
+                        <p>Referência em estética facial, focado em devolver a harmonia e o contorno jovem do seu
+                            rosto.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Dobra 5: Estética / Lab -->
+    <!-- Dobra 5: Equipe e Estrutura -->
+    <section class="team section-padding breakout">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Nossa Estrutura</span>
+                <h2>Conheça nossa Equipe e Estrutura!</h2>
+                <p>A Harmonize está preparada para garantir que sua jornada seja rápida, segura e acolhedora. Do
+                    primeiro contato ao resultado final, cuidamos de cada detalhe para o seu total conforto.</p>
+            </div>
+
+            <div class="team-features reveal">
+                <div class="team-feat">
+                    <span class="team-feat-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </span>
+                    <div class="team-feat-text">
+                        <h4>Atendimento Especializado</h4>
+                        <p>Suporte humanizado para tirar todas as suas dúvidas.</p>
+                    </div>
+                </div>
+                <div class="team-feat">
+                    <span class="team-feat-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="2" x2="9" y2="4"></line>
+                            <line x1="15" y1="2" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="22"></line>
+                            <line x1="15" y1="20" x2="15" y2="22"></line>
+                            <line x1="20" y1="9" x2="22" y2="9"></line>
+                            <line x1="20" y1="14" x2="22" y2="14"></line>
+                            <line x1="2" y1="9" x2="4" y2="9"></line>
+                            <line x1="2" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                    </span>
+                    <div class="team-feat-text">
+                        <h4>Tecnologia de Ponta</h4>
+                        <p>Equipamentos modernos para um planejamento digital preciso.</p>
+                    </div>
+                </div>
+                <div class="team-feat">
+                    <span class="team-feat-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <polyline points="9 12 11 14 15 10"></polyline>
+                        </svg>
+                    </span>
+                    <div class="team-feat-text">
+                        <h4>Conforto Garantido</h4>
+                        <p>Protocolos focados no seu bem-estar durante todo o processo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper team-slider reveal">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/primeira%20foto.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4241.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4263.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4316.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4374.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4423.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4495.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4566.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4598.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                    <div class="swiper-slide"><img
+                            src="https://github.com/f5estrategia/HarmonizeOdontologia-/blob/main/IMG_4639.jpg?raw=true"
+                            alt="Equipe Harmonize"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 6: Estética / Lab -->
     <section class="lab section-padding breakout">
         <div class="lab-glow"></div>
         <div class="container">
@@ -1754,7 +2076,7 @@
         </div>
     </section>
 
-    <!-- Dobra 6: Avaliações -->
+    <!-- Dobra 7: Avaliações -->
     <section class="reviews section-padding breakout">
         <div class="container">
             <div class="reviews-header reveal">
@@ -1847,7 +2169,7 @@
         </div>
     </section>
 
-    <!-- Dobra 7: Próximo Passo -->
+    <!-- Dobra 8: Próximo Passo -->
     <section class="cta section-padding breakout">
         <div class="container">
             <div class="cta-content reveal">
@@ -1953,6 +2275,17 @@
             slidesPerView: 1,
             breakpoints: {
                 768: { slidesPerView: 3, spaceBetween: 20 }
+            }
+        });
+
+        new Swiper('.team-slider', {
+            ...commonOptions,
+            navigation: { nextEl: '.team-slider .swiper-button-next', prevEl: '.team-slider .swiper-button-prev' },
+            slidesPerView: 1,
+            spaceBetween: 24,
+            centeredSlides: false,
+            breakpoints: {
+                768: { slidesPerView: 2, spaceBetween: 28 }
             }
         });
 
